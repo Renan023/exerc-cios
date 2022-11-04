@@ -1,0 +1,8 @@
+d = float(input('Qual foi a distância percorrida em m '))
+print(f'Em {d/1000}km ')
+print(f'Em {d/100}hm')
+print(f'Em {d/10}dam')
+print(f'Em {d*1}m')
+print(f'Em {d*10}dm')
+print(f'Em {d*100}cm')
+print(f'Em {d*1000}mm')
