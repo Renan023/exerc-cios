@@ -95,3 +95,50 @@ def equacao():
     print(f'x = {(-a[1] + rq) / 2 * a[0]:.0f}')
     print(f'x = -{a[1]}-√{delta}/2.{a[0]}')
     print(f'x = {(-a[1] - rq) / 2 * a[0]:.0f}')
+
+
+def media():
+    xs = leiaint('Alunos ')
+    for c in range(0, xs):
+        c += 1
+        print(f'Aluno {c}')
+        av = leiaint('Avaliações ')
+        s = 0
+        m = 0
+        for av in range(0, av):
+            n = leiafloat('Notas ')
+            s = s + n
+            m = s / (av + 1)
+            sa = 0
+        print(f'Aluno {c} média {m:.2f}')
+        if m >= 6:
+            sa = sa + m
+            print(f'Aluno {c} passou com nota {m:.2f}')
+        elif m >= 4 and m < 6:
+            rec = 6 - m
+            sa = sa + m
+            print(f'Aluno {c} ficou de recuperação {m:.2f} faltou {rec:.2f}')
+        else:
+            rec = 6 - m
+            sa = sa + m
+            print(f'Aluno {c} foi retido com nota {m:.2f} faltou {rec:.2f}')
+        mc = sa / xs
+    print(f'A média da classe é {mc:.2f}')
+
+def compras():
+    cl = leiaint('Clientes ')
+    vd = 0
+    for c in range(0, cl):
+        c += 1
+        print(f'Cliente {c}')
+        vc = leiafloat('Valor das compras ')
+        pa = leiaint('Parcelas ')
+        porc = leiaint('Porcentagem[desc(-)/acresc(+)] ')
+        if pa == pa:
+            vc1 = vc * -porc / 100
+            vt = vc - vc1
+            vd = vd + vt
+            pt = vt / pa
+            print(f'Cliente {c} valor total R$ {pt}')
+    time.sleep(0.5)
+    print(f'O valor de compras diárias é R$ {vd} ')
