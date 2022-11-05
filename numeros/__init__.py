@@ -139,6 +139,6 @@ def compras():
             vt = vc - vc1
             vd = vd + vt
             pt = vt / pa
-            print(f'Cliente {c} valor total R$ {pt}')
+            print(f'Cliente {c} valor total R$ {pt} parcelado em {pa} vezes')
     time.sleep(0.5)
     print(f'O valor de compras diárias é R$ {vd} ')
