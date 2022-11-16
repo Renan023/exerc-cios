@@ -1,4 +1,4 @@
-import time, math
+import time, math,character
 
 
 def leiafloat(f):
@@ -28,17 +28,6 @@ def leiaint(n):
         else:
             return n
 
-
-def acrescimo(v, p, t):
-    ac= v*p/t
-    pr = p-t
-    print(f'Seu valor acrescentado {pr}% é de R$ {ac:.2f}')
-
-
-def desconto(v, p, t):
-    des= v*p/t
-    pr = t -p
-    print(f'O valor com desconto de {pr}% é de R$ {des:.2f}')
 
 
 def bissexto(ano):
@@ -98,31 +87,37 @@ def equacao():
 
 
 def media():
-    xs = leiaint('Alunos ')
+    xs = leiaint('Alunos: ')
+    print('-'*50)
     for c in range(0, xs):
         c += 1
-        print(f'Aluno {c}')
-        av = leiaint('Avaliações ')
+        nome = input(f'Aluno {c} nome: ')
+        av = leiaint('Avaliações: ')
         s = 0
         m = 0
+        print('='*50)
         for av in range(0, av):
-            n = leiafloat('Notas ')
+            n = leiafloat('Notas: ')
             s = s + n
             m = s / (av + 1)
             sa = 0
-        print(f'Aluno {c} média {m:.2f}')
+        print(f'Aluno {c} {nome} média {m:.2f}')
         if m >= 6:
             sa = sa + m
-            print(f'Aluno {c} passou com nota {m:.2f}')
+            print(f'Aluno {c} {nome} passou com nota {m:.2f}')
+            print('='*50)
         elif m >= 4 and m < 6:
             rec = 6 - m
             sa = sa + m
-            print(f'Aluno {c} ficou de recuperação {m:.2f} faltou {rec:.2f}')
+            print(f'Aluno {c} {nome} ficou de recuperação {m:.2f} faltou {rec:.2f}')
+            print('='*50)
         else:
             rec = 6 - m
             sa = sa + m
             print(f'Aluno {c} foi retido com nota {m:.2f} faltou {rec:.2f}')
+            print('='*50)
         mc = sa / xs
+    time.sleep(0.4)
     print(f'A média da classe é {mc:.2f}')
 
 def compras():
@@ -142,3 +137,35 @@ def compras():
             print(f'Cliente {c} valor total R$ {pt} parcelado em {pa} vezes')
     time.sleep(0.5)
     print(f'O valor de compras diárias é R$ {vd} ')
+
+
+def ac_desc():
+    xs = leiaint('Quantidade de funcionários ')
+    for c in range(0, xs):
+        c += 1
+        func = character.leiachar(f'Funcionário {c} ').title()
+        bonus = character.s_n()
+        sal = leiafloat(f'Salário atual de {func} ')
+        ac = leiaint('Acréscimo ')
+        desc = leiaint('Desconto ')
+        sal_desc = 0
+        print('-' * 50)
+        if ac > 0 or desc > 0:
+            print(f'{func}')
+            sal_ac = sal * ac / 100 + sal
+            print(f'O salário com acréscimo de {ac}% é R$ {sal_ac:.2f}')
+            sal_desc = sal_ac * desc / 100
+            sal_desc = sal_ac - sal_desc
+            print(f'Seu salário descontado em {desc}% fica em R$ {sal_desc:.2f}')
+            print(f'O salário total do funcionário {c} {func} com seu acréscimo e desconto é de {sal_desc:.2f}')
+            if bonus not in 'Ss':
+                print('Próximo...')
+                print('-'*50)
+            else:
+                pass
+        if bonus not in 'Nn':
+            bonus = sal_desc * 115 / 100
+            print(f'O bônus de {func} totaliza o salário em R$ {bonus:.2f}')
+            time.sleep(0.3)
+            print('Próximo...')
+            print('-'*50)
